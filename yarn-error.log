@@ -1,0 +1,88 @@
+Arguments: 
+  /home/sk/.nvm/versions/node/v12.18.3/bin/node /usr/share/yarn/bin/yarn.js start
+
+PATH: 
+  /home/sk/.nvm/versions/node/v12.18.3/bin:/media/sk/409A9CCB5460B5D9/work/newit/itjugadu/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  12.18.3
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /media/sk/409A9CCB5460B5D9/work/newit/itjugadu/package.json: Unexpected string in JSON at position 210
+      at JSON.parse (<anonymous>)
+      at /usr/share/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/share/yarn/lib/cli.js:310:30)
+      at /usr/share/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "itjugadu",
+    "version": "0.0.0",
+    "scripts": {
+      "ng": "ng",
+      "start": "node server.js",
+      "build": "ng build --prod",
+      "test": "ng test",
+      "lint": "ng lint",
+      "e2e": "ng e2e"
+      "e2e": "ng e2e"
+      "e2e": "ng e2e"
+    },
+    "private": true,
+    "dependencies": {
+      "@angular/animations": "~10.0.7",
+      "@angular/common": "~10.0.7",
+      "@angular/compiler": "~10.0.7",
+      "@angular/core": "~10.0.7",
+      "@angular/forms": "~10.0.7",
+      "@angular/platform-browser": "~10.0.7",
+      "@angular/platform-browser-dynamic": "~10.0.7",
+      "@angular/router": "~10.0.7",
+      "@ng-toolkit/universal": "^1.1.21",
+      "express": "^4.17.1",
+      "ngx-spinner": "^9.0.2",
+      "path": "^0.12.7",
+      "rxjs": "~6.6.2",
+      "tslib": "^2.0.0",
+      "zone.js": "~0.10.3"
+    },
+    "devDependencies": {
+      "@angular-devkit/build-angular": "~0.1000.5",
+      "@angular/cli": "~10.0.5",
+      "@angular/compiler-cli": "~10.0.7",
+      "@angular/language-service": "~10.0.7",
+      "@types/jasmine": "~3.3.8",
+      "@types/jasminewd2": "~2.0.3",
+      "@types/node": "^12.11.1",
+      "codelyzer": "^6.0.0",
+      "jasmine-core": "~3.5.0",
+      "jasmine-spec-reporter": "~5.0.0",
+      "karma": "~5.0.0",
+      "karma-chrome-launcher": "~3.1.0",
+      "karma-coverage-istanbul-reporter": "~3.0.2",
+      "karma-jasmine": "~3.3.0",
+      "karma-jasmine-html-reporter": "^1.5.4",
+      "protractor": "~7.0.0",
+      "ts-node": "~7.0.0",
+      "tslint": "~6.1.0",
+      "typescript": "~3.9.7",
+      "webpack-cli": "^3.3.12"
+    },
+    "engines": {
+      "node": "~12.9.0",
+      "npm": "~6.4.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

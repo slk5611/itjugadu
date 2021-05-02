@@ -1,0 +1,41 @@
+<div id="primary" class="content-area clear">
+  <main id="main" class="site-main clear">
+    <div class="breadcrumbs clear">
+      <h3>
+        TypeScript </h3>
+      <div class="taxonomy-description"><p>Simple Solutions for Complex Connections.</p>
+      </div>
+    </div>
+    <div id="recent-content" class="content-loop">
+      <div *ngFor="let typescriptBlog of oTypescriptBlog"
+           class="clear post-98 post type-post status-publish format-standard has-post-thumbnail hentry category-social-media category-technology">
+        <a class="thumbnail-link" href="#" [routerLink]="['/blog-info', moreInfo(typescriptBlog)]">
+          <div class="thumbnail-wrap">
+            <img width="300" height="200" src="{{imageUrl + typescriptBlog.thumbnailImage}}"
+                 class="attachment-post_thumb size-post_thumb wp-post-image" alt=""
+                 srcset="{{imageUrl + typescriptBlog.thumbnailImage}} 300w, {{imageUrl + typescriptBlog.thumbnailImage}} 768w, {{imageUrl + typescriptBlog.thumbnailImage}} 1024w, {{imageUrl + typescriptBlog.thumbnailImage}} 720w, {{imageUrl + typescriptBlog.thumbnailImage}} 600w, {{imageUrl + typescriptBlog.thumbnailImage}} 1570w"
+                 sizes="(max-width: 300px) 100vw, 300px"/>
+          </div>
+        </a>
+        <div class="entry-header">
+          <h2 class="entry-title"><a href="#" [routerLink]="['/blog-info', moreInfo(typescriptBlog)]">{{typescriptBlog.postName}}</a></h2>
+          <div class="entry-meta clear">
+            <span class="entry-author">
+              <a href="#" [routerLink]="['/author', typescriptBlog.author]">
+              <img alt='' src="assets/images/logo/admin.png" class='avatar avatar-48 photo' height='48' width='48'/></a>
+              <a href="#" [routerLink]="['/author', typescriptBlog.author]" title="Posts by {{typescriptBlog.author}}" rel="author">{{typescriptBlog.author}}</a> &#8212;
+            </span>
+            <span class="entry-date">{{typescriptBlog.createdAt|date:'longDate'}}</span>
+            <span class='entry-comment'><a href="#" [routerLink]="['/blog-info', moreInfo(typescriptBlog)]" class="comments-link">{{typescriptBlog.comment}} comment</a></span>
+          </div>
+        </div>
+        <div class="entry-summary">
+          <div class="limited-text">{{typescriptBlog.description}}</div>
+          ...
+          <span class="comments-link"><a href="#" [routerLink]="['/blog-info', moreInfo(typescriptBlog)]"> Read more &raquo;</a> {{typescriptBlog.readingTime}} MINUTE READ</span>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<ngx-spinner></ngx-spinner>

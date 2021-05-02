@@ -1,0 +1,166 @@
+<div id="primary" class="content-area">
+
+  <main id="main" class="site-main">
+
+
+    <article
+      class="single post-98 post type-post status-publish format-standard has-post-thumbnail hentry category-social-media category-technology">
+      <header class="entry-header clear">
+
+        <div class="entry-category-icon">
+          <!-- Here if else condition because in route we have "html-css" but getting "HTML CSS" in postType  -->
+          <a href="#" routerLinkActive="active" *ngIf="viewData.postType === 'HTML CSS';else content"
+             routerLink="/html-css" title="View all posts in Html & Css">{{viewData.postType}}</a>
+          <ng-template #content><a href="#" routerLinkActive="active" routerLink="/{{viewData.postType| lowercase}}"
+                                   title="View all posts in Html & Css">{{viewData.postType}}</a></ng-template>
+        </div>
+
+        <h1 style="font-size: 34px;" class="entry-title">{{viewData.postName}}</h1>
+        <div class="entry-meta clear">
+
+          <span class="entry-author">
+            <a href="#" routerLinkActive="active" [routerLink]="['/author', viewData.author]">
+              <img alt='' src='../../../assets/images/logo/admin.png' class='avatar avatar-48 photo' height='48'
+                   width='48'/>
+            </a>
+            <a href="#" routerLinkActive="active" [routerLink]="['/author', viewData.author]"
+               title="Posts by {{viewData.author}}" rel="author">{{viewData.author}}</a> &#8212; </span>
+          <span class="entry-date">{{viewData.createdAt|date: 'longDate'}}</span>
+
+          <span class='entry-comment'><span class="comments-link">{{viewData.comment}} comment</span></span>
+
+        </div>
+
+        <div class="social-share-icons">
+
+          <a href="http://twitter.com/share?text={{viewData.postName}}&url=https%3A%2F%2Fwww.itjugadu.com{{currentUrl}}"
+             target="_blank"><img class="social-margin" src="assets/images/logo/icon-twitter-square.png" alt=""/></a>
+
+          <a
+            href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.itjugadu.com{{currentUrl}}&p[title]={{viewData.postName}}"
+            target="_blank"><img class="social-margin" src="assets/images/logo//icon-facebook-square.png" alt=""/></a>
+
+          <a
+            href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.itjugadu.com&title={{viewData.postName}}"
+            target="_blank">
+            <img class="social-margin" src="assets/images/logo/linkedin.png" alt=""/></a>
+
+          <a
+            href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.itjugadu.com{{currentUrl}}&description={{viewData.postName}}"
+            target="_blank"><img class="social-margin" src="assets/images/logo/icon-pinterest-square.png" alt=""/></a>
+
+        </div>
+
+      </header><!-- .entry-header -->
+
+      <div class="entry-content">
+        <div [innerHTML]="viewData.blog"></div>
+
+      </div><!-- .entry-content -->
+
+      <span class="entry-tags">
+
+
+			</span><!-- .entry-tags -->
+
+    </article><!-- #post-## -->
+
+    <!-- ITJugadu Banner-->
+    <!--<div id="happythemes-ad-12" class="content-ad widget_ad ad-widget"><div class="adwidget"><a href="../../../../external.html?link=http://www.happythemes.com/join/" target="_blank"><img src="../../newsnow/wp-content/uploads/sites/10/2017/06/728-3.png" alt="Ad Widget"/></a></div></div>
+    -->
+    <div class="entry-related clear">
+      <h3>Recommended For You</h3>
+      <div class="related-loop clear">
+        <div class="hentry" *ngFor="let recommended of oRecommendedPost?.slice(0,4)">
+          <a class="thumbnail-link" href="#" [routerLink]="['/blog-info', moreInfo(recommended)]">
+            <div class="thumbnail-wrap">
+              <img width="300" height="200" src="{{imageUrl + recommended.thumbnailImage}}"
+                   class="attachment-post_thumb size-post_thumb wp-post-image" alt=""
+                   srcset="{{imageUrl + recommended.thumbnailImage}} 300w, {{imageUrl + recommended.thumbnailImage}} 768w, {{imageUrl + recommended.thumbnailImage}} 1024w, {{imageUrl + recommended.thumbnailImage}} 720w, {{imageUrl + recommended.thumbnailImage}} 600w, {{imageUrl + recommended.thumbnailImage}} 1570w"
+                   sizes="(max-width: 300px) 100vw, 300px"/></div><!-- .thumbnail-wrap -->
+          </a>
+
+          <h2 class="entry-title"><a [routerLink]="['/blog-info', moreInfo(recommended)]">{{recommended.postName}}</a>
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="author-box clear">
+      <a href="#" routerLinkActive="active" [routerLink]="['/author', viewData.author]"><img alt=''
+                                                                                             src="assets/images/logo/admin.png"
+                                                                                             class='avatar avatar-120 photo'
+                                                                                             height='120' width='120'/></a>
+      <div class="author-meta">
+        <h4 class="author-name">About the Author: <span><a href="#" routerLinkActive="active"
+                                                           [routerLink]="['/author', viewData.author]">{{viewData?.author}}</a></span>
+        </h4>
+        <div class="author-desc">
+          This is the author biographical info, author not given more detail.
+        </div>
+      </div>
+    </div>
+
+    <div id="comments" class="comments-area">
+
+      <h2 class="comments-title">
+        {{viewData.comment}} Comment </h2>
+      <!-- .comment-list -->
+      <ol class="comment-list" *ngFor="let comment of oCommentData">
+        <li id="comment-10" class="comment byuser comment-author-allen bypostauthor even thread-even depth-1">
+          <article id="div-comment-10" class="comment-body">
+            <footer class="comment-meta">
+              <div class="comment-author vcard">
+                <img alt=''
+                     src='assets/images/logo/admin.png'
+                     srcset='assets/images/logo/admin.png'
+                     class='avatar avatar-32 photo' height='32' width='32'/> <b class="fn" style="text-transform:capitalize;">{{comment.users.firstName +' ' + comment.users.lastName}}</b> <span class="says">says:</span>
+              </div><!-- .comment-author -->
+
+              <div class="comment-metadata">
+                <a href="javascript:void(0)">
+                  <time>
+                    {{comment.createdAt | date }} {{comment.createdAt | date:'shortTime'}}
+                  </time>
+                </a>
+              </div>
+
+            </footer>
+            <div class="comment-content">
+              <p>{{comment.comment}}</p>
+            </div><!-- .comment-content -->
+          </article><!-- .comment-body -->
+        </li><!-- #comment-## -->
+      </ol>
+
+      <div id="respond" class="comment-respond">
+        <h3 id="reply-title" class="comment-reply-title">Leave a Reply <small>
+          <a rel="nofollow" id="cancel-comment-reply-link" href="index.html#respond" style="display:none;">Cancel
+            reply</a></small></h3>
+        <form name="form" (ngSubmit)="f.form.valid && addComment()" #f='ngForm' class="comment-form">
+          <p class="comment-notes">
+            <span id="email-notes">Your email address will not be published.</span>
+          </p>
+          <p class="comment-form-comment">
+            <label for="comment">Comment<span
+              class="required"> *</span></label>
+          <span>
+            <textarea id="comment" name="comment" cols="45" rows="8" [(ngModel)]="oComment.comment" maxlength="65525"
+                      #comment="ngModel" [ngClass]="{ 'is-invalid': f.submitted && comment.invalid }" required></textarea>
+          <div *ngIf="f.submitted && comment.invalid" class="invalid-feedback">
+            <div *ngIf="comment.errors.required" style="color: red">Comment is required.</div>
+        </div>
+          </span>
+            <span style="color: red">{{loginMessage}}
+              <a *ngIf="loginMessage" href="#" routerLink="/login"> Login here</a>
+            </span>
+          </p>
+          <p class="form-submit">
+            <input name="submit" type="submit" id="submit" class="submit" value="Post Comment"/>
+          </p>
+         </form>
+      </div><!-- #respond -->
+    </div><!-- #comments -->
+
+  </main><!-- #main -->
+</div>
+<ngx-spinner></ngx-spinner>

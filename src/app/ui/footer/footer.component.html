@@ -1,0 +1,123 @@
+<footer id="colophon" class="site-footer">
+  <div class="footer-columns clear">
+    <div class="container">
+      <div class="footer-column footer-column-1">
+        <div id="text-1" class="widget footer-widget widget_text">
+          <h3 class="widget-title">About The ItJugadu</h3>
+          <div class="textwidget"><p>
+            <a href="#" routerLink="/home" target="_blank">
+              <img src="assets/images/logo/logo.png" alt="ITjugadu"/></a></p>
+            <p>ITjugadu is a blogging site where you can find blog related to Testing, Angular, Html & Css, React, Vue & Phpports and Entertainment.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-column footer-column-2">
+        <div id="newsnow_pro-recent-2" class="widget footer-widget widget-newsnow_pro-recent widget_posts_thumbnail"><h3
+          class="widget-title">Recent Posts</h3>
+          <ul>
+            <li class="clear" *ngFor="let recent of oRecentPost.slice(0,3);">
+              <a href="#" [routerLink]="['/blog-info', moreInfo(recent)]">
+              <div class="thumbnail-wrap"><img width="150" height="150"
+                                               src="{{imageUrl + recent.thumbnailImage}}"
+                                               class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
+                                               alt=""/></div>
+            </a>
+              <div class="entry-wrap"><a href="#" [routerLink]="['/blog-info', moreInfo(recent)]">{{recent.postName}}</a>
+                <div class="entry-meta">{{recent.createdAt|date:'longDate'}}</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-column footer-column-3">
+        <div id="newsnow_pro-popular-2" class="widget footer-widget widget-newsnow_pro-popular widget_posts_thumbnail">
+          <h3 class="widget-title">Popular Posts</h3>
+          <ul>
+            <li class="clear" *ngFor="let popular of oPopularPost.slice(0,3)">
+              <a href="#" [routerLink]="['/blog-info', moreInfo(popular)]">
+              <div class="thumbnail-wrap"><img width="150" height="150"
+                                               src="{{imageUrl + popular.thumbnailImage}}"
+                                               class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
+                                               alt=""/></div>
+            </a>
+              <div class="entry-wrap"><a href="#" [routerLink]="['/blog-info', moreInfo(popular)]">{{popular.postName}}</a>
+                <div class="entry-meta">{{popular.createdAt|date: 'longDate'}}</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-column footer-column-4">
+        <div id="categories-3" class="widget footer-widget widget_categories"><h3 class="widget-title">Categories</h3>
+          <ul>
+            <li class="cat-item cat-item-2">
+              <a href="#" routerLink="angular"
+                 title="Angular, It’s a Mind Game.">Angular </a>({{oPostCount.totalAngular}})
+            </li>
+            <li class="cat-item cat-item-3">
+              <a href="#" routerLink="node"
+                 title="Node is Life to Live.">Node </a>({{oPostCount.totalNode}})
+
+            </li>
+            <li class="cat-item cat-item-4">
+              <a href="#" routerLink="react-blog"
+                 title="Every day is a react show and the world is your runway.">React </a>({{oPostCount.totalReact}})
+
+            </li>
+            <li class="cat-item cat-item-5">
+              <a href="#" routerLink="html-css"
+                 title="Better Time Connecting Html & Css Is Today.">Html &
+              Css </a>({{oPostCount.totalHtmlCss}})
+            </li>
+            <li class="cat-item cat-item-6">
+              <a href="#" routerLink="vue-php"
+                 title="Run Hard. Run Fast. But just keep running.">Vue Php </a>({{oPostCount.totalVuePhp}})
+            </li>
+            <li class="cat-item cat-item-7">
+              <a href="#" routerLink="testing-blog"
+                 title="Simple Solutions for Complex Connections.">Testing </a>({{oPostCount.totalTesting}})
+            </li>
+            <li class="cat-item cat-item-7">
+              <a href="#" routerLink="javascript"
+                 title="Simple Solutions for Complex Connections.">Javascript </a>({{oPostCount.totalJavascript}})
+            </li>
+            <li class="cat-item cat-item-7">
+              <a href="#" routerLink="TypeScript"
+                 title="Simple Solutions for Complex Connections.">TypeScript </a>({{oPostCount.totalTypescript}})
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div id="site-bottom" class="clear">
+    <div class="container">
+      <div class="site-info">
+        &copy; 2020 <a href="http://itjugadu.com">ITjugadu</a> -
+        Blog by <a href="http://itjugadu.com" target="_blank">ITjugadu</a>
+      </div>
+      <div class="menu-primary-menu-container">
+        <ul id="footer-menu" class="footer-nav">
+          <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-285"><a
+            href="#" routerLink="term-condition">Terms Conditions</a></li>
+          <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-285"><a
+            href="#" routerLink="privacy-security">Privacy Policy</a></li>
+          <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-285"><a
+            href="#" routerLink="cookie-policy">Cookies Policy</a></li>
+          <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-284"><a href="#"
+                                                                                                routerLinkActive="active"
+                                                                                                routerLink="about">About</a>
+          </li>
+          <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-285"><a
+            href="#" routerLink="contact">Contact</a></li>
+          <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-286"><a
+            href="#" routerLink="latest-post">Latest Posts »</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

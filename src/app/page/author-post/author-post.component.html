@@ -1,0 +1,47 @@
+<div id="primary" class="content-area clear">
+  <main id="main" class="site-main clear">
+    <div class="breadcrumbs clear">
+      <h3>Author: {{oAuthor[0]?.author}}</h3>
+    </div>
+    <div id="recent-content" class="content-loop">
+      <div *ngFor="let author of oAuthor"
+           class="clear post-98 post type-post status-publish format-standard has-post-thumbnail hentry category-social-media category-technology">
+        <a class="thumbnail-link" href="javascript:void(0)" (click)="moreInfo(author)">
+          <div class="thumbnail-wrap">
+            <img width="300" height="200" src="{{imageUrl + author.thumbnailImage}}"
+                 class="attachment-post_thumb size-post_thumb wp-post-image" alt=""
+                 srcset="{{imageUrl + author.thumbnailImage}} 300w, {{imageUrl + author.thumbnailImage}} 768w, {{imageUrl + author.thumbnailImage}} 1024w, {{imageUrl + author.thumbnailImage}} 720w, {{imageUrl + author.thumbnailImage}} 600w, {{imageUrl + author.thumbnailImage}} 1570w"
+                 sizes="(max-width: 300px) 100vw, 300px"/>
+          </div>
+        </a>
+        <div class="entry-header">
+          <div class="entry-category-icon">
+            <!-- Here if else condition because in route we have "html-css" but getting "HTML CSS" in postType  -->
+            <a href="#" routerLinkActive="active" *ngIf="author.postType === 'HTML CSS';else content" routerLink="/html-css" title="View all posts in Html Css" >{{author.postType}}</a>
+            <ng-template #content> <a href="#" routerLinkActive="active" routerLink="/{{author.postType| lowercase}}" title="View all posts in Html Css" >{{author.postType}}</a></ng-template>
+
+          </div>
+          <h2 class="entry-title"><a href="javascript:void(0)" class="comments-link"
+                                     (click)="moreInfo(author)">{{author.postName}}</a></h2>
+          <div class="entry-meta clear">
+            <span class="entry-author"><a href="#" routerLinkActive="active" routerLink="/author"><img alt=''
+                                                        src='assets/images/logo/admin.png'
+                                                        class='avatar avatar-48 photo' height='48' width='48'/></a> <a
+              href="#" routerLinkActive="active" routerLink="/author" title="Posts by {{author.author}}"
+              rel="author">{{author.author}}</a> &#8212; </span>
+            <span class="entry-date">{{author.createdAt|date:'longDate'}}</span>
+            <span class='entry-comment'><a href="javascript:void(0)" class="comments-link"
+                                           (click)="moreInfo(author)">{{author.comment}} comment</a></span>
+          </div>
+        </div>
+        <div class="entry-summary">
+          <div class="limited-text">{{author.description}}</div>
+          ...
+          <span class="comments-link"><a href="javascript:void(0)" class="comments-link" (click)="moreInfo(author)"> Read more &raquo;</a> {{author.readingTime}}
+            MINUTE READ</span>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<ngx-spinner></ngx-spinner>

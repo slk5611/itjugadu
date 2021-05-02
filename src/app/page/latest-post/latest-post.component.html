@@ -1,0 +1,58 @@
+<div id="primary" class="content-area clear">
+  <div id="main" class="site-main clear">
+    <div class="breadcrumbs clear">
+      <h3>
+        All Recent Posts
+      </h3>
+    </div>
+    <div id="recent-content" class="content-loop">
+      <div *ngFor="let latest of oLatestPost"
+           class="clear post-98 post type-post status-publish format-standard has-post-thumbnail hentry category-social-media category-technology">
+        <a class="thumbnail-link" href="#" [routerLink]="['/blog-info', moreInfo(latest)]">
+          <div class="thumbnail-wrap">
+            <img width="300" height="200" src="{{imageUrl + latest.thumbnailImage}}"
+                 class="attachment-post_thumb size-post_thumb wp-post-image" alt=""
+                 srcset="{{imageUrl + latest.thumbnailImage}} 300w, {{imageUrl + latest.thumbnailImage}} 768w, {{imageUrl + latest.thumbnailImage}} 1024w, {{imageUrl + latest.thumbnailImage}} 720w, {{imageUrl + latest.thumbnailImage}} 600w, {{imageUrl + latest.thumbnailImage}} 1570w"
+                 sizes="(max-width: 300px) 100vw, 300px"/>
+          </div><!-- .thumbnail-wrap -->
+        </a>
+        <div class="entry-header">
+          <div class="entry-category-icon">
+            <!-- Here if else condition because in route we have "html-css" but getting "HTML CSS" in postType  -->
+            <a href="#" routerLinkActive="active" *ngIf="latest.postType === 'HTML CSS';else content"
+               routerLink="/html-css" title="View all posts in Html & Css">{{latest.postType}}</a>
+            <ng-template #content><a href="#" routerLinkActive="active" routerLink="/{{latest.postType| lowercase}}"
+                                     title="View all posts in Html & Css">{{latest.postType}}</a></ng-template>
+          </div>
+          <h2 class="entry-title"><a href="#" [routerLink]="['/blog-info', moreInfo(latest)]">{{latest.postName}}</a>
+          </h2>
+          <div class="entry-meta clear">
+            <span class="entry-author">
+              <a href="#" [routerLink]="['/author', latest.author]">
+              <img alt='' src="assets/images/logo/admin.png" class='avatar avatar-48 photo' height='48' width='48'/>
+              </a>
+              <a href="#" [routerLink]="['/author', latest.author]" title="Posts by {{latest.author}}" rel="author">{{latest.author}}</a> &#8212; </span>
+            <span class="entry-date">{{latest.createdAt|date:'longDate'}}</span>
+            <!--When user click here it will jump to comment section of post-->
+            <span class='entry-comment'><a href="#" [routerLink]="['/blog-info', moreInfo(latest)]" class="comments-link">{{latest.comment}} comment</a></span>
+          </div>
+        </div>
+        <div class="entry-summary">
+          <div class="limited-text">{{latest.description}}</div>
+          ...
+          <span class="comments-link"><a href="#" [routerLink]="['/blog-info', moreInfo(latest)]"> Read more &raquo;</a> {{latest.readingTime}} MINUTE READ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+ <!-- <nav class="navigation pagination" role="navigation" aria-label="Posts">
+    <h2 class="screen-reader-text">Posts navigation</h2>
+    <div class="nav-links"><span aria-current="page" class="page-numbers current">1</span>
+      <a class="page-numbers" href="page/2/index.html">2</a>
+      <span class="page-numbers dots">&hellip;</span>
+      <a class="page-numbers" href="page/4/index.html">4</a>
+      <a class="next page-numbers" href="page/2/index.html">Next</a></div>
+  </nav>-->
+
+</div>
+<ngx-spinner></ngx-spinner>

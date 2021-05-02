@@ -1,0 +1,41 @@
+<div id="primary" class="content-area clear">
+  <main id="main" class="site-main clear">
+    <div class="breadcrumbs clear">
+      <h3>
+        Testing </h3>
+      <div class="taxonomy-description"><p>Simple Solutions for Complex Connections.</p>
+      </div>
+    </div>
+    <div id="recent-content" class="content-loop">
+      <div *ngFor="let testingBlog of oTestingBlog"
+           class="clear post-98 post type-post status-publish format-standard has-post-thumbnail hentry category-social-media category-technology">
+        <a class="thumbnail-link" href="#" [routerLink]="['/blog-info', moreInfo(testingBlog)]">
+          <div class="thumbnail-wrap">
+            <img width="300" height="200" src="{{imageUrl + testingBlog.thumbnailImage}}"
+                 class="attachment-post_thumb size-post_thumb wp-post-image" alt=""
+                 srcset="{{imageUrl + testingBlog.thumbnailImage}} 300w, {{imageUrl + testingBlog.thumbnailImage}} 768w, {{imageUrl + testingBlog.thumbnailImage}} 1024w, {{imageUrl + testingBlog.thumbnailImage}} 720w, {{imageUrl + testingBlog.thumbnailImage}} 600w, {{imageUrl + testingBlog.thumbnailImage}} 1570w"
+                 sizes="(max-width: 300px) 100vw, 300px"/>
+          </div>
+        </a>
+        <div class="entry-header">
+          <h2 class="entry-title"><a href="#" [routerLink]="['/blog-info', moreInfo(testingBlog)]">{{testingBlog.postName}}</a></h2>
+          <div class="entry-meta clear">
+            <span class="entry-author">
+              <a href="#" [routerLink]="['/author', testingBlog.author]">
+              <img alt='' src="assets/images/logo/admin.png" class='avatar avatar-48 photo' height='48' width='48'/></a>
+              <a href="#" [routerLink]="['/author', testingBlog.author]" title="Posts by {{testingBlog.author}}" rel="author">{{testingBlog.author}}</a> &#8212;
+            </span>
+            <span class="entry-date">{{testingBlog.createdAt|date:'longDate'}}</span>
+            <span class='entry-comment'><a href="#" [routerLink]="['/blog-info', moreInfo(testingBlog)]" class="comments-link">{{testingBlog.comment}} comment</a></span>
+          </div>
+        </div>
+        <div class="entry-summary">
+          <div class="limited-text">{{testingBlog.description}}</div>
+          ...
+          <span class="comments-link"><a href="#" [routerLink]="['/blog-info', moreInfo(testingBlog)]"> Read more &raquo;</a> {{testingBlog.readingTime}} MINUTE READ</span>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<ngx-spinner></ngx-spinner>

@@ -1,0 +1,56 @@
+<div id="primary" class="content-area">
+  <main id="main" class="site-main">
+
+
+    <article id="post-121" class="post-121 page type-page status-publish hentry">
+      <header class="entry-header">
+        <h1 class="page-title">Contact information</h1></header><!-- .entry-header -->
+
+      <div class="entry-content">
+        <p>Please use below form to contact us. Let us know if you have any suggestions or feedback or improvements about our articles/tutorials/guides will be appreciated.<strong>&nbsp;</strong></p>
+
+
+        <div role="f" class="wpcf7" id="wpcf7-f257-p121-o1" lang="en-US" dir="ltr">
+          <div class="screen-reader-response"></div>
+          <p class="contact-message"> {{this.contactMessage.message}} </p>
+          <form name="form" (ngSubmit)="f.form.valid && addContact()" #f="ngForm" class="wpcf7-form">
+            <p><label> Your Name (required)<br/>
+              <span class="wpcf7-form-control-wrap">
+                  <input type="text" name="name" id="name" [(ngModel)]="oContact.name" value="" size="40"
+                         class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" #name="ngModel"
+                         [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" required/>
+              <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+              <div *ngIf="name.errors.required" style="color: red">Name is required.</div>
+            </div>
+              </span> </label>
+            </p>
+            <p><label> Your Email (required)<br/>
+              <span class="wpcf7-form-control-wrap">
+                  <input type="email" name="email" id="email" [(ngModel)]="oContact.email" size="40"
+                         class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
+                         #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email/>
+              <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+              <div *ngIf="email.errors.required" style="color: red">Email is required.</div>
+              <div *ngIf="email.errors.email" style="color: red">Email must be a valid email address.</div>
+            </div>
+              </span> </label></p>
+            <p><label> Subject<br/>
+              <span class="wpcf7-form-control-wrap">
+                  <input type="text" name="subject" id="subject" [(ngModel)]="oContact.subject" size="40"
+                         class="wpcf7-form-control wpcf7-text"/>
+                </span> </label></p>
+            <p><label> Your Message<br/>
+              <span class="wpcf7-form-control-wrap">
+                  <textarea name="message" id="message" [(ngModel)]="oContact.message" cols="40" rows="10"
+                            class="wpcf7-form-control wpcf7-textarea"></textarea>
+                </span> </label></p>
+            <p><input type="submit" value="Send" class="wpcf7-form-control wpcf7-submit"/></p>
+            <p class="contact-message"> {{this.contactMessage.message}} </p>
+          </form>
+        </div>
+      </div><!-- .entry-content -->
+
+    </article><!-- #post-## -->
+
+  </main><!-- #main -->
+</div>

@@ -1,0 +1,160 @@
+<header id="masthead" class="site-header clear">
+  <div id="primary-bar">
+    <div class="container">
+      <nav id="primary-nav" class="main-navigation">
+        <div class="menu-primary-menu-container">
+          <ul id="primary-menu" class="sf-menu">
+            <li routerLinkActive="current-menu-item" id="menu-item-284" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-284"><a
+              href="#" routerLink="about">About</a></li>
+            <li routerLinkActive="current-menu-item" id="menu-item-285" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-285"><a
+              href="#" routerLink="contact">Contact</a></li>
+            <li routerLinkActive="current-menu-item" id="menu-item-286" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-286"><a
+              href="#" routerLink="latest-post">Latest Posts »</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="header-search">
+        <nav id="primary-nav" class="main-navigation">
+          <div class="menu-primary-menu-container">
+            <ul id="primary-menu" class="sf-menu" *ngIf="oUser === ''; else loginTag">
+              <li routerLinkActive="current-menu-item" id="menu-item-284" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-284"><a
+                href="#" routerLink="login">Login</a></li>
+              <li routerLinkActive="current-menu-item" id="menu-item-285" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-285"><a
+                href="#" routerLink="register">Register</a></li>
+            </ul>
+            <ng-template #loginTag>
+              <ul id="primary-menu" class="sf-menu">
+                <li id="menu-item-245" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-245"><a style="text-decoration: none" href="javascript:void(0)">Login as: {{oUser}}</a>
+                  <ul class="sub-menu" style="width: 218px;">
+                    <li id="menu-item-246" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-246"><a href="#" (click)="logoutUser()">Sign Out</a></li>
+                   </ul>
+                </li>
+
+              </ul>
+            </ng-template>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="site-start clear">
+    <div class="container">
+      <div class="site-branding">
+        <div id="logo">
+          <span class="helper"></span>
+          <a href="#" routerLink="/home" rel="home">
+            <img src="assets/images/logo/logo.png" alt=""/>
+          </a>
+        </div>
+      </div>
+      <!-- ITJugadu Banner-->
+      <!--<div id="happythemes-ad-11" class="header-ad widget_ad ad-widget">
+        <div class="adwidget"><a href="../../../external.html?link=http://www.happythemes.com/join/"
+                                 target="_blank"><img src="assets/images/uploads/sites/10/2017/06/728-1.png"
+                                                      alt="Ad Widget"/></a></div>
+      </div>-->
+      <span class="mobile-menu-icon">
+				<span class="menu-icon-open">Menu</span>
+				<span class="menu-icon-close"><span class="genericon genericon-close"></span></span>
+			</span>
+    </div>
+  </div>
+  <div id="secondary-bar" class="container clear">
+    <div class="container">
+      <nav id="secondary-nav" class="secondary-navigation">
+        <div class="menu-secondary-menu-container">
+          <ul id="secondary-menu" class="sf-menu">
+            <li id="menu-item-243" routerLinkActive="current-menu-item"
+                class="menu-item menu-item-type-custom menu-item-object-custom current_page_item menu-item-home menu-item-243">
+              <a href="#" routerLink="home" aria-current="page">Home</a></li>
+            <li id="menu-item-274" routerLinkActive="current-menu-item"
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-274"><a
+              href="#" routerLink="latest-post">All Posts</a>
+            </li>
+            <li id="menu-item-237" routerLinkActive="current-menu-item"
+                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-237"><a
+              href="#" routerLink="html-css">Html & Css</a></li>
+            <li id="menu-item-238" routerLinkActive="current-menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-238"><a
+              href="#" routerLink="angular">Angular</a></li>
+            <li id="menu-item-239" routerLinkActive="current-menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-239"><a
+              href="#" routerLink="react-blog">React</a></li>
+            <li id="menu-item-240" routerLinkActive="current-menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-240"><a
+              href="#" routerLink="vue-php">Vue & Php</a></li>
+            <li id="menu-item-242" routerLinkActive="current-menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-242"><a
+              href="#" routerLink="node">Node</a></li>
+            <li id="menu-item-283" routerLinkActive="current-menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-283"><a
+              href="#" routerLink="testing-blog">Testing</a></li>
+            <li id="menu-item-288" routerLinkActive="current-menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-283"><a
+              href="#" routerLink="typescript-blog">TypeScript</a></li>
+            <li id="menu-item-287" routerLinkActive="current-menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-283"><a
+              href="#" routerLink="javascript-blog">JavaScript</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div class="mobile-menu clear">
+    <div class="container">
+      <div class="menu-left"><h3>Pages</h3>
+        <div class="menu-primary-menu-container">
+          <ul id="primary-mobile-menu" class="">
+            <li routerLinkActive="current-menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-284"><a
+              href="#" routerLink="about">About</a></li>
+            <li routerLinkActive="current-menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-285"><a
+              href="#" routerLink="contact">Contact</a></li>
+            <li routerLinkActive="current-menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-286"><a
+              href="#" routerLink="latest-post">Latest Posts</a></li>
+            <li *ngIf="oUser === ''; else loginMTag" routerLinkActive="current-menu-item" id="menu-item-284" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-284"><a
+              href="#" routerLink="login">Login</a></li>
+            <ng-template #loginMTag>
+                <li id="menu-item-245" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-245">
+                  <a style="text-decoration: none" href="javascript:void(0)">Login as: {{oUser}}</a>
+                </li>
+            </ng-template>
+            <li *ngIf="oUser === ''; else registerMTag" routerLinkActive="current-menu-item" id="menu-item-285" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-285"><a
+              href="#" routerLink="register">Register »</a></li>
+            <ng-template #registerMTag>
+              <li id="menu-item-245" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-245">
+                <a style="text-decoration: none" href="#" (click)="logoutUser()">Sign Out</a>
+              </li>
+            </ng-template>
+
+          </ul>
+
+
+        </div>
+      </div>
+      <div class="menu-right"><h3>Categories</h3>
+        <div class="menu-secondary-menu-container">
+          <ul id="secondary-mobile-menu" class="">
+            <li routerLinkActive="current-menu-item"
+              class="menu-item menu-item-type-custom menu-item-object-custom current_page_item menu-item-home menu-item-243">
+              <a href="#" routerLink="home" aria-current="page">Home</a></li>
+            <li routerLinkActive="current-menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-274"><a
+              href="#" routerLink="/latest-post">All Posts</a></li>
+            <li routerLinkActive="current-menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-237"><a
+              href="#" routerLink="/html-css">Html & Css</a></li>
+            <li routerLinkActive="current-menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-238"><a
+              href="#" routerLink="/angular">Angular</a></li>
+            <li routerLinkActive="current-menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-239"><a
+              href="#" routerLink="/react">React</a></li>
+            <li routerLinkActive="current-menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-240"><a
+              href="#" routerLink="/vue-php">Vue & Php</a></li>
+            <li routerLinkActive="current-menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-242"><a
+              href="#" routerLink="/node">Node</a></li>
+            <li routerLinkActive="current-menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-283"><a
+              href="#" routerLink="/testing-blog" >Testing</a></li>
+            <li routerLinkActive="current-menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-283"><a
+              href="#" routerLink="typescript-blog">TypeScript</a></li>
+            <li routerLinkActive="current-menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-283"><a
+              href="#" routerLink="javascript-blog">JavaScript</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="search-icon">
+				<span class="genericon genericon-search"></span>
+				<span class="genericon genericon-close"></span>
+			</span>
+</header>

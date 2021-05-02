@@ -1,0 +1,106 @@
+<aside id="secondary" class="widget-area sidebar">
+  <!-- ITJugadu Banner-->
+  <!--<div id="happythemes-ad-8" class="widget widget_ad ad-widget">
+    <div class="adwidget"><a href="../../../external.html?link=http://www.happythemes.com/join/" target="_blank"><img
+      src="../../../assets/images/uploads/sites/10/2017/06/300-1.png" alt="Ad Widget"/></a></div>
+  </div>-->
+  <div id="newsnow_pro-social-3" class="widget widget-newsnow_pro-social widget_social_icons"><h2
+    class="widget-title"><span>Follow Us</span></h2>
+    <div class="desc">Stay updated via social channels</div>
+    <div class="social-icons">
+      <ul>
+        <li class="twitter"><a href="https://twitter.com/itjugadu" target="_blank"><img src="assets/images/logo/icon-twitter.png" alt=""/></a></li>
+        <li class="facebook"><a href="https://www.facebook.com/Itjugadu-109970837391079" target="_blank"><img src="assets/images/logo/icon-facebook.png" alt=""/></a></li>
+        <li class="pinterest"><a href="https://in.pinterest.com/itjugadu/" target="_blank"><img src="assets/images/logo/icon-pinterest.png" alt=""/></a></li>
+        <li class="linkedin"><a href="https://www.linkedin.com/in/itjugadu-blogger-a2608b1aa/detail/recent-activity/" target="_blank"><img src="assets/images/logo/icon-linkedin.png" alt=""/></a></li>
+<!--
+
+        <li class="google-plus"><a href="#"><img src="assets/images/logo/icon-google-plus.png" alt=""/></a></li>
+        <li class="youtube"><a href="#"><img src="assets/images/logo/icon-youtube.png" alt=""/></a></li>
+-->
+
+      </ul>
+    </div>
+  </div>
+  <div id="newsnow_pro-views-3" class="widget widget-newsnow_pro-views widget_posts_thumbnail"><h2
+    class="widget-title"><span>Most Viewed Posts</span></h2>
+    <ul>
+      <li class="clear" *ngFor="let mostviewed of oMostViewed?.slice(0, 8)">
+        <a href="#" [routerLink]="['/blog-info', moreInfo(mostviewed)]">
+        <div class="thumbnail-wrap">
+          <img width="150" height="150" src="{{imageUrl + mostviewed.thumbnailImage}}"
+                                         class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt=""/>
+        </div>
+      </a>
+        <div class="entry-wrap"><a href="#" [routerLink]="['/blog-info', moreInfo(mostviewed)]">{{mostviewed.postName}}</a>
+          <div class="entry-meta">{{mostviewed.createdAt|date: 'longDate'}} <span class='entry-comment'>{{mostviewed.comment}} comment</span></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!--<div id="search-3" class="widget widget_search">
+    <form role="search" method="get" class="search-form"
+          action="../../../external.html?link=https://www.happythemes.com/demo/newsnow-pro/">
+      <label>
+        <span class="screen-reader-text">Search for:</span>
+        <input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s"/>
+      </label>
+      <input type="submit" class="search-submit" value="Search"/>
+    </form>
+  </div>-->
+  <!-- ITJugadu Banner-->
+  <!--
+  <div id="happythemes-ad-9" class="widget widget_ad ad-widget"><h2 class="widget-title"><span>Advertisement</span>
+  </h2>
+    <div class="adwidget"><a href="../../../external.html?link=http://www.happythemes.com/join/" target="_blank"><img
+      src="../../../assets/images/uploads/sites/10/2017/06/300-2.png" alt="Ad Widget"/></a></div>
+  </div>-->
+  <div id="newsnow_pro-random-3" class="widget widget-newsnow_pro-random widget_posts_thumbnail"><h2
+    class="widget-title"><span>Random Posts</span></h2>
+    <ul>
+      <li class="clear" *ngFor="let random of oRandomPost">
+        <a href="#" [routerLink]="['/blog-info', moreInfo(random)]">
+          <div class="thumbnail-wrap">
+            <img width="150" height="150" src="{{imageUrl + random.thumbnailImage}}"
+                                           class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt=""/>
+          </div>
+        </a>
+        <div class="entry-wrap">
+          <a href="#" [routerLink]="['/blog-info', moreInfo(random)]">{{random.postName}}</a>
+          <div class="entry-meta">{{random.createdAt|date: 'longDate'}} <span class='entry-comment'>{{random.comment}} comment</span></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="newsnow_pro-newsletter-3" class="widget widget_newsletter"><h2 class="widget-title">
+    <span>Get our newsletter, join the community ITjugadu:</span></h2>
+    <div class="newsletter-widget"><p></p>
+
+      <form name="f" (ngSubmit)="f.form.valid && addNewsLetter()" #f="ngForm">
+        <input type="text" value="" name="name" [(ngModel)]="oNewsLetter.name" #name="ngModel"
+               [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" required placeholder="Your Name">
+        <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+          <div *ngIf="name.errors.required" style="color: red">Name is required.</div>
+        </div>
+
+        <input type="email" value="" name="email" [(ngModel)]="oNewsLetter.email" #email="ngModel"
+               [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email placeholder="Your Email">
+        <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+          <div *ngIf="email.errors.required" style="color: red">Email is required.</div>
+          <div *ngIf="email.errors.email" style="color: red">Email must be a valid email address.</div>
+        </div>
+        <p style="color: #1bd760">{{oNewsMessage.message}}</p>
+        <input type="submit" value="Subscribe" name="subscribe" class="button">
+      </form>
+    </div>
+  </div>
+  <div id="recent-comments-3" class="widget widget_recent_comments"><h2 class="widget-title">
+    <span>Recent Comments</span></h2>
+    <ul id="recentcomments" *ngFor="let recentComment of oRecentComment?.slice(0, 10)">
+      <li class="recentcomments" style="margin-bottom: 10px;"><span class="comment-author-link" style="color: #0091cd; text-transform:capitalize;">{{recentComment.users.firstName + ' ' + recentComment.users.lastName }}</span> on <a
+        href="#" [routerLink]="['/blog-info', moreInfo(recentComment.posts)]">{{recentComment.posts.postName}}</a></li>
+
+    </ul>
+  </div>
+</aside><!-- #secondary -->
+

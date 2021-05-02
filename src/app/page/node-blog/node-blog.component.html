@@ -1,0 +1,41 @@
+<div id="primary" class="content-area clear">
+  <main id="main" class="site-main clear">
+    <div class="breadcrumbs clear">
+      <h3>
+        Node </h3>
+      <div class="taxonomy-description"><p>Node is Life to Live.</p>
+      </div>
+    </div>
+    <div id="recent-content" class="content-loop">
+      <div *ngFor="let node of oNode"
+           class="clear post-98 post type-post status-publish format-standard has-post-thumbnail hentry category-social-media category-technology">
+        <a class="thumbnail-link" href="#" [routerLink]="['/blog-info', moreInfo(node)]">
+          <div class="thumbnail-wrap">
+            <img width="300" height="200" src="{{imageUrl + node.thumbnailImage}}"
+                 class="attachment-post_thumb size-post_thumb wp-post-image" alt=""
+                 srcset="{{imageUrl + node.thumbnailImage}} 300w, {{imageUrl + node.thumbnailImage}} 768w, {{imageUrl + node.thumbnailImage}} 1024w, {{imageUrl + node.thumbnailImage}} 720w, {{imageUrl + node.thumbnailImage}} 600w, {{imageUrl + node.thumbnailImage}} 1570w"
+                 sizes="(max-width: 300px) 100vw, 300px"/>
+          </div>
+        </a>
+        <div class="entry-header">
+          <h2 class="entry-title"><a href="#" [routerLink]="['/blog-info', moreInfo(node)]">{{node.postName}}</a></h2>
+          <div class="entry-meta clear">
+            <span class="entry-author"><a href="#" [routerLink]="['/author', node.author]"><img alt=''
+                                                        src="assets/images/logo/admin.png"
+                                                        class='avatar avatar-48 photo' height='48' width='48'/></a> <a
+              href="#" [routerLink]="['/author', node.author]" title="Posts by {{node.author}}" rel="author">{{node.author}}</a> &#8212; </span>
+            <span class="entry-date">{{node.createdAt|date:'longDate'}}</span>
+            <span class='entry-comment'><a href="#" [routerLink]="['/blog-info', moreInfo(node)]" class="comments-link">{{node.comment}} comment</a></span>
+          </div>
+        </div>
+        <div class="entry-summary">
+          <div class="limited-text">{{node.description}}</div>
+          ...
+          <span class="comments-link"><a [routerLink]="['/blog-info', moreInfo(node)]"> Read more &raquo;</a> {{node.readingTime}}
+            MINUTE READ</span>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<ngx-spinner></ngx-spinner>
